@@ -1,0 +1,114 @@
+<html>
+<head>
+<style>
+.video-container {
+	overflow: hidden;
+    position: relative;
+    width: 48%;
+    height: 48%;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    margin: 5px 5px;
+}
+
+
+.video-container iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+</style>
+</head>
+<body style="background-color:black">
+<div class="video-container"><div id="player1"></div></div>
+<div class="video-container"><div id="player2"></div></div>
+<div class="video-container"><div id="player3"></div></div>
+<div class="video-container"><div id="player4"></div></div>
+<script>
+ var isPlayer1UnMuted = false;
+                    var tag = document.createElement('script');
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    var player;
+  function onYouTubeIframeAPIReady() {
+  var video1='oY976rzO-EI',
+  video2='bNyUyrR0PHo',
+  video3='n7eQejkXbnM',
+  video4='zq6ohxTDNZY';
+ 
+  
+  var player_vars={   
+            'autoplay': 1,   
+            'rel': 0,
+            'showinfo': 0,
+            'modestbranding': 1,
+            'playsinline': 1,
+            'showinfo': 0,
+            'rel': 0,
+            'controls': 1,
+            'color':'white',
+            'loop': 1,
+            'mute':1,
+            // 'origin': 'https://meeranblog24x7.blogspot.com/'
+      };
+    player1 = new YT.Player('player1', {
+      videoId: video1,
+      playerVars:player_vars,
+      events: {
+        'onReady': onPlayer1Ready,
+        'onStateChange': onPlayer1StateChange
+      }
+    });
+	
+	player2 = new YT.Player('player2', {
+      videoId: video2,
+      playerVars:player_vars,
+      events: {
+        'onReady': onPlayer2Ready,
+        // 'onStateChange': onPlayerStateChange
+      }
+    });
+
+	player3 = new YT.Player('player3', {
+      videoId: video3,
+      playerVars:player_vars,
+      events: {
+        'onReady': onPlayer3Ready,
+        // 'onStateChange': onPlayerStateChange
+      }
+    });	 
+	
+	player4 = new YT.Player('player4', {
+      videoId: video4,
+      playerVars:player_vars,
+      events: {
+        'onReady': onPlayer4Ready,
+        // 'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+  function onPlayer1Ready(event) {
+    player1.playVideo();
+    player1.mute();
+	 
+  }
+   function onPlayer2Ready(event) {
+    player2.playVideo();
+    player2.mute();
+  }
+   function onPlayer3Ready(event) {
+    player3.playVideo();
+    player3.mute();
+  }
+   function onPlayer4Ready(event) {
+    player4.playVideo();
+    player4.mute();
+  }
+  
+  function onPlayer1StateChange(event) {
+  
+  }
+  
+</script>
+
+
+</body>
+</html>
